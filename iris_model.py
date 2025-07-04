@@ -1,5 +1,5 @@
 """Main script with the iris model and the data"""
-import numpy as np
+from pyexpat import features
 # importing modules.
 from sklearn.datasets import load_iris
 from sklearn.preprocessing import StandardScaler
@@ -7,9 +7,12 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 # loading the data.
@@ -42,6 +45,7 @@ sns.pairplot(df, hue = "species")
 
 
 """Preparing data for training and testing"""
+
 # Dividing data into training and testing.
 df_train = df.drop(columns = ["species"])
 x_train, x_test, y_train, y_test = train_test_split(df_train, series_named, test_size = 0.2, random_state = 42)
@@ -136,6 +140,7 @@ plt.ylabel("True label")
 
 
 """Visualization of a cross-validation for Logistic Regression and Random Forest"""
+
 plt.figure(figsize = (8, 5))
 x_pos = np.arange(1, 11)
 plt.plot(x_pos, cv_score_lr, marker = "o", label = "Logistic Regression")
@@ -152,6 +157,7 @@ plt.legend()
 
 
 """Visualization of classification reports metrics for Logistic Regression and Random Forest"""
+
 # Creating variable for unique class names.
 class_names = ["setosa", "versicolor", "virginica"]
 
@@ -204,3 +210,112 @@ ax.set_ylabel("Score")
 ax.legend(loc = "upper left", bbox_to_anchor = (1,1))
 plt.tight_layout()
 # plt.savefig("../ml_iris_classification/data/class_report_visualization.png") # Saving the plot to file.
+
+
+
+"""Visualization of a 3D plot for Logistic Regression and Random Forest."""
+
+# Preparing data for visualization.
+features_3d = ["sepal length (cm)", "petal length (cm)", "petal width (cm)"]
+class_vals = {0 : "setosa", 1 : "versicolor", 2 : "virginica"}
+x_vis_3d = x_test_scaled_df[features_3d].copy()
+
+
+# Predicting the data and mapping names to classes.
+y_pred_lr = log_reg.predict(x_test_scaled_df)
+y_pred_rf = rf.predict(x_test_scaled_df)
+
+x_vis_3d["LogReg"] = pd.Series(y_pred_lr)
+x_vis_3d["RandFor"] = pd.Series(y_pred_rf)
+
+
+# Colors assignment.
+colors = {
+    "setosa" : "red",
+    "versicolor" : "green",
+    "virginica" : "blue"
+}
+
+
+# Plotting the chart.
+fig = plt.figure(figsize = (16,7))
+
+# Logistic Regression.
+ax1 = fig.add_subplot(121, projection = "3d")
+for cls in class_vals.values():
+    subset = x_vis_3d[x_vis_3d["LogReg"] == cls]
+    ax1.scatter(
+        subset[features_3d[0]],
+        subset[features_3d[1]],
+        subset[features_3d[2]],
+        label = cls,
+        c = colors[cls],
+        s = 50,
+        alpha = 0.7
+    )
+
+ax1.set_xlabel(features_3d[0])
+ax1.set_ylabel(features_3d[1])
+ax1.set_zlabel(features_3d[2])
+ax1.set_title("Logistic Regression")
+
+
+# Random Forest.
+ax2 = fig.add_subplot(122, projection = "3d")
+for cls in class_vals.values():
+    subset = x_vis_3d[x_vis_3d["RandFor"] == cls]
+    ax2.scatter(
+        subset[features_3d[0]],
+        subset[features_3d[1]],
+        subset[features_3d[2]],
+        label = cls,
+        c = colors[cls],
+        s = 50,
+        alpha = 0.7
+    )
+
+ax2.set_xlabel(features_3d[0])
+ax2.set_ylabel(features_3d[1])
+ax2.set_zlabel(features_3d[2])
+ax2.set_title("Random Forest")
+
+ax2.legend(loc = "upper left", bbox_to_anchor = (1, 1))
+plt.tight_layout()
+# plt.savefig("../ml_iris_classification/data/3d_visualization.png") # Saving the plot to file.
+
+
+
+"""Pipeline"""
+#=========================
+# This is an example of use of a pipeline in the whole process.
+# It is not used in the project as ir would change the core of it.
+# It is only to demonstrate good practices.
+#==========================
+
+# Logistic Regression pipeline.
+log_reg_pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("logreg", LogisticRegression(max_iter = 200, random_state = 42))
+])
+
+
+# Random Forest pipeline.
+rand_for_pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("randfor", RandomForestClassifier(n_estimators = 100, random_state = 42))
+])
+
+
+# Example cross-validation.
+logreg_scores = cross_val_score(log_reg_pipeline, df, series_named, cv = 10, scoring = "accuracy")
+rand_for_scores = cross_val_score(rand_for_pipeline, df, series_named, cv =10, scoring = "accuracy")
+
+
+# Fitting and predicting data for Logistic Regression.
+log_reg_pipeline.fit(x_train, y_train)
+y_pred_lr_pipe = log_reg_pipeline.predict(x_test)
+
+
+# Fitting and predicting data for Random Forest.
+rand_for_pipeline.fit(x_train, y_train)
+y_pred_rf_pipe = rand_for_pipeline.predict(x_test)
