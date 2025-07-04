@@ -55,7 +55,7 @@ The project includes customized visualizations and implement two models: **Logis
 ---
 
 ### Confusion Matrix - Logistic Regression
-* **File:** "conf_matrix_log_reg.png""
+* **File:** "conf_matrix_log_reg.png"
 * **Description:** Confusion Matrix for Logistic Regression predictions.
 * **Conclusion:** Some misclassifications between  *versicolor* and *virginica*.
 
@@ -65,7 +65,7 @@ The project includes customized visualizations and implement two models: **Logis
 ---
 
 ### Confusion Matrix - Random Forest
-* **File:** "conf_matrix_rand_for.png""
+* **File:** "conf_matrix_rand_for.png"
 * **Description:** Confusion Matrix for Random Forest predictions.
 * **Conclusion:** Identical to Logistic Regression; both models perform equally well.
 
@@ -75,7 +75,7 @@ The project includes customized visualizations and implement two models: **Logis
 ---
 
 ### Cross-Validation Results
-* **File:** "cross_val_lin.png""
+* **File:** "cross_val_lin.png"
 * **Description:** Shows 10-fold cross-validation scores for both models.
 * **Conclusion:** Performance is very similar. Logistic Regression may be preferred due to its simplicity.
 
@@ -85,7 +85,7 @@ The project includes customized visualizations and implement two models: **Logis
 ---
 
 ### Classification Report Metrics
-* **File:** "class_report_visualization.png""
+* **File:** "class_report_visualization.png"
 * **Description:** Comparison of precision, recall, and F1-score for both models.
 * **Conclusion:** All metrics are close to 1, indicating excellent performance on this dataset.
 
@@ -95,7 +95,7 @@ The project includes customized visualizations and implement two models: **Logis
 ---
 
 ### 3D Visualization of Predictions
-* **File:** "3d_visualization.png""
+* **File:** "3d_visualization.png"
 * **Description:** 3D scatter plots showing predictions made by both models.
 * **Conclusion:** Visual similarity reinforces that both models classify the test data in nearly the same way.
 
