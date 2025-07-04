@@ -35,12 +35,13 @@ _Pipeline_: Pipeline was used solely for demonstration of a feature in Scikit-le
 
 ### Data description
 * "petal_visualisation.png": Basic visualization of the iris data before any train or test.
-![petal_visualisation.png](data/petal_visualisation.png)
+![petal_visualisation.png](data/petal_visualization.png)
 * "conf_matrix_log_reg.png": Visualization of a confusion matrix for logistic regression prediction model. It shows where the model is and isn't accurate.
   * **Conclusion:** 'versicolor' class is confused with 'virginica' sometimes.
 ![conf_matrix_log_reg.png](data/conf_matrix_log_reg.png)
 * "conf_matrix_rand_forest.png": Visualization of a confusion matrix for random forest prediction model. It shows where the model is and isn't accurate.
-  * **Conclusion:** Logistic regression and random forest confusion matrix are the same. It shows that both work fine on the dataset.
+  * **Conclusion:** Logistic regression and random forest confusion matrix are the same. 
+  It shows that both work fine on the dataset.
 ![conf_matrix_rand_forest.png](data/conf_matrix_rand_forest.png)
 * "cross_val_lin.png": Linear model for logistic regression and random forest cross-validation 10-fold results.
   * **Conclusion:** Both models return similar results with small differences. It may be worth to use simpler model which is logistic regression.
