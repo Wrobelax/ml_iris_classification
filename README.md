@@ -41,7 +41,7 @@ _Pipeline_: Pipeline was used solely for demonstration of a feature in Scikit-le
 ![conf_matrix_log_reg.png](data/conf_matrix_log_reg.png)
 * "conf_matrix_rand_forest.png": Visualization of a confusion matrix for random forest prediction model. It shows where the model is and isn't accurate.
   * **Conclusion:** Logistic regression and random forest confusion matrix are the same. 
-  It shows that both work fine on the dataset.
+  It shows that both work fine on the dataset and could be used interchangeably.
 ![conf_matrix_rand_forest.png](data/conf_matrix_rand_forest.png)
 * "cross_val_lin.png": Linear model for logistic regression and random forest cross-validation 10-fold results.
   * **Conclusion:** Both models return similar results with small differences. It may be worth to use simpler model which is logistic regression.
