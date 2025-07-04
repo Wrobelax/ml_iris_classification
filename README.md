@@ -1,27 +1,38 @@
-```Project status: In progress - Visualization.```
+# Iris Classification with Machine Learning
+
+```Project status: In progress - Working on visualizations.```
 
 
 ## **Project description**
-This project utilises iris data from sklearn module, manipulates it, trains ml model and uses for prediction models visualization.
-The data used in the project is pretty simple and covers only 150 cases (rows). Visualization of predictions and trainig/testing data shows close to perfection fit which corresponds with simplicity of the data but also confirm that chosen models properly correspond with the data.
-The project uses visualisations, machine learning and pipeline for Logistic Regression and Random Forest models.
-
-### Features
-_Visualizations_: Used heatmaps, line chart, bar chart and 3D visualization of a combined charts. Plots were customized to express the data better.
-
-_Machine Learning_: Utilized training, testing, predicting and fitting of the data for Logistic Regression and Random Forest models. Used standard 20% of the data for testing and compared results with cross validation aproach for 10 fold.
-
-_Pipeline_: Pipeline was used solely for demonstration of a feature in Scikit-learn module. It was not utilized during the process of training and testing.
+This project uses classic Iris dataset from the "sklearn" module. It includes data preprocessing, training machine learning models, evaluating their performance, and visualizing results.
+The dataset contains only 150 samples, which makes it simple and ideal for exploring and comparing classification models. The results show near-perfect predictions, which is expected due to the dataset's simplicity and well-separated features. It also confirms that the selected models fit the data appropriately.
+The project includes customized visualizations and implement two models: **Logistic Regression** and **Random Forest**, both with and without use of **Scikit-learn Pipelines**.
 
 
-### Tech Stack
+## **Features**
+* ### Visualizations: 
+  * Used heatmaps, line chart, bar chart and 3D scatter plot. 
+  * Plots were customized for clarity and better interpretation of model performance.
+
+* ### Machine Learning
+  * Trained and evaluated **Logistic Regression** and **Random Forest** models.
+  * Used an 80/20 train-test split.
+  * Applied **10-fold cross-validation** to compare with the holdout method.
+
+* ### Pipeline 
+  * Pipelines were implemented as a demonstration of Scikit-learn's "Pipeline" feature.
+  * The models were developed without pipelines for transparency and learning purposes.
+  * Pipelines were added to encapsulate the workflow.
+
+
+## **Tech Stack**
 - Pandas
 - Matplotlib
 - Seaborn
 - Scikit-learn
 
 
-### Project structure
+## **Project structure**
 * /**data:** Data visualization folder
   * /**3d_visualization.png**
   * /**class_report_visualization.png**
@@ -29,26 +40,73 @@ _Pipeline_: Pipeline was used solely for demonstration of a feature in Scikit-le
   * /**conf_matrix_rand_forest.png**
   * /**cross_val_lim.png**
   * /**petal_visualization.png**
-* /**iris_model.py:** Main file with models training, testing and visualization.
+* /**iris_model.py:** Main file with data prep, model training, testing and visualization.
 * /**README.md:** Main documentation of the project.
 
 
-### Data description
-* "petal_visualisation.png": Basic visualization of the iris data before any train or test.
+## **Data description & Visualization**
+### Petal Visualization
+* **File:** "petal_visualisation.png"
+* **Description:** Basic exploratory plot showing petal features before any modeling.
+
 ![petal_visualisation.png](data/petal_visualization.png)
-* "conf_matrix_log_reg.png": Visualization of a confusion matrix for logistic regression prediction model. It shows where the model is and isn't accurate.
-  * **Conclusion:** 'versicolor' class is confused with 'virginica' sometimes.
+
+
+---
+
+### Confusion Matrix - Logistic Regression
+* **File:** "conf_matrix_log_reg.png""
+* **Description:** Confusion Matrix for Logistic Regression predictions.
+* **Conclusion:** Some misclassifications between  *versicolor* and *virginica*.
+
 ![conf_matrix_log_reg.png](data/conf_matrix_log_reg.png)
-* "conf_matrix_rand_forest.png": Visualization of a confusion matrix for random forest prediction model. It shows where the model is and isn't accurate.
-  * **Conclusion:** Logistic regression and random forest confusion matrix are the same. 
-  It shows that both work fine on the dataset and could be used interchangeably.
+
+
+---
+
+### Confusion Matrix - Random Forest
+* **File:** "conf_matrix_rand_for.png""
+* **Description:** Confusion Matrix for Random Forest predictions.
+* **Conclusion:** Identical to Logistic Regression; both models perform equally well.
+
 ![conf_matrix_rand_forest.png](data/conf_matrix_rand_forest.png)
-* "cross_val_lin.png": Linear model for logistic regression and random forest cross-validation 10-fold results.
-  * **Conclusion:** Both models return similar results with small differences. It may be worth to use simpler model which is logistic regression.
+
+
+---
+
+### Cross-Validation Results
+* **File:** "cross_val_lin.png""
+* **Description:** Shows 10-fold cross-validation scores for both models.
+* **Conclusion:** Performance is very similar. Logistic Regression may be preferred due to its simplicity.
+
 ![cross_val_lin.png](data/cross_val_lin.png)
-* "class_report_visualization.png": Classification report visualization for logistic regression and random forest.
-  * **Conclusion:** All values are on 1 which means that both models perfectly fit in the data and prediction.
+
+
+---
+
+### Classification Report Metrics
+* **File:** "class_report_visualization.png""
+* **Description:** Comparison of precision, recall, and F1-score for both models.
+* **Conclusion:** All metrics are close to 1, indicating excellent performance on this dataset.
+
 ![class_report_visualization.png](data/class_report_visualization.png)
-* "3d_visualization.png": 3D representation of a logistic regression and random forest data fitting.
-  * **Conclusion:** Both plots are almost the same which confirms simplicity of the data.
-![3d_visualization.png](data/3d_visualization.png)
+
+
+---
+
+### 3D Visualization of Predictions
+* **File:** "3d_visualization.png""
+* **Description:** 3D scatter plots showing predictions made by both models.
+* **Conclusion:** Visual similarity reinforces that both models classify the test data in nearly the same way.
+
+* ![3d_visualization.png](data/3d_visualization.png)
+
+
+---
+
+## Final Thoughts
+This project demonstrates the full workflow a small-scale machine learning process:
+* Data loading and exploration
+* Model training and evaluation
+* Use of pipelines for cleaner and modular ML code
+* Multiple forms of result visualization.
