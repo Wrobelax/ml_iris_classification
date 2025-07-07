@@ -127,3 +127,4 @@ This project demonstrates the full workflow a small-scale machine learning proce
 * Model training and evaluation
 * Use of pipelines for cleaner and modular ML code
 * Multiple forms of result visualization.
+* Testing pipeline with pytest.
