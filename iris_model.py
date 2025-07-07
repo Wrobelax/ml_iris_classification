@@ -8,7 +8,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
-from mpl_toolkits.mplot3d import Axes3D
+from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -307,8 +307,8 @@ rand_for_pipeline = Pipeline([
 
 
 # Example cross-validation.
-logreg_scores = cross_val_score(log_reg_pipeline, df, series_named, cv = 10, scoring = "accuracy")
-rand_for_scores = cross_val_score(rand_for_pipeline, df, series_named, cv =10, scoring = "accuracy")
+logreg_scores = cross_val_score(log_reg_pipeline, df_train, series_named, cv = 10, scoring = "accuracy")
+rand_for_scores = cross_val_score(rand_for_pipeline, df_train, series_named, cv = 10, scoring = "accuracy")
 
 
 # Fitting and predicting data for Logistic Regression.

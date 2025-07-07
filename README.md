@@ -1,6 +1,6 @@
 # Iris Classification with Machine Learning
 
-```Project status: In progress - Working on visualizations.```
+```Project status: In progress - Testing.```
 
 
 ## **Project description**
