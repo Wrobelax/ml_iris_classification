@@ -30,6 +30,8 @@ The project includes customized visualizations and implement two models: **Logis
 - Matplotlib
 - Seaborn
 - Scikit-learn
+- NumPy
+- Pytest
 
 
 ## **Project structure**
