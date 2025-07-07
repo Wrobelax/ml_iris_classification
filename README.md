@@ -1,7 +1,7 @@
 # Iris Classification with Machine Learning
 
 ![Pytest](https://img.shields.io/badge/project_status-completed\closed-darkgreen)
----
+
 ![Pytest](https://img.shields.io/badge/tests-passing-darkgreen)
 
 ## **Project description**
