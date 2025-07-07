@@ -123,8 +123,8 @@ Test results are saved in tests/pytest_results.txt.
 
 ## Final Thoughts
 This project demonstrates the full workflow a small-scale machine learning process:
-* Data loading and exploration
-* Model training and evaluation
-* Use of pipelines for cleaner and modular ML code
+* Data loading and exploration.
+* Model training and evaluation.
+* Use of pipelines for cleaner and modular ML code.
 * Multiple forms of result visualization.
 * Testing pipeline with pytest.
