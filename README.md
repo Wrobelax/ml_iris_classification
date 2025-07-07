@@ -1,7 +1,8 @@
 # Iris Classification with Machine Learning
 
-```Project status: In progress - Testing.```
-
+![Pytest](https://img.shields.io/badge/project_status-completed\closed-darkgreen)
+---
+![Pytest](https://img.shields.io/badge/tests-passing-darkgreen)
 
 ## **Project description**
 This project uses classic Iris dataset from the "sklearn" module. It includes data preprocessing, training machine learning models, evaluating their performance, and visualizing results.
@@ -23,7 +24,17 @@ The project includes customized visualizations and implement two models: **Logis
   * Pipelines were implemented as a demonstration of Scikit-learn's "Pipeline" feature.
   * The models were developed without pipelines for transparency and learning purposes.
   * Pipelines were added to encapsulate the workflow.
+  * Pipeline was utilized for testing purposes.
 
+* ### Testing
+Automated tests were written used **Pytest** to verify pipeline correctness and utility function behavior. The tests include:
+
+* Checking if metric extraction returns correct outputs ("precision", "recall", "f1-score")
+* Verifying behavior with incorrect input data.
+* Validating pipeline predictions using sample data.
+* Ensuring classification reports are parsed as expected.
+
+Test results are saved in tests/pytest_results.txt.
 
 ## **Tech Stack**
 - Pandas
@@ -42,6 +53,11 @@ The project includes customized visualizations and implement two models: **Logis
   * /**conf_matrix_rand_forest.png**
   * /**cross_val_lim.png**
   * /**petal_visualization.png**
+* /**tests:**
+  * /**__init__.py**
+  * /**test_pipeline.py:** File with testing for pipeline.
+  * /**pytest_results.txt:** Text file with test results.
+* /**__init__.py**
 * /**iris_model.py:** Main file with data prep, model training, testing and visualization.
 * /**README.md:** Main documentation of the project.
 
@@ -102,7 +118,6 @@ The project includes customized visualizations and implement two models: **Logis
 * **Conclusion:** Visual similarity reinforces that both models classify the test data in nearly the same way.
 
 * ![3d_visualization.png](data/3d_visualization.png)
-
 
 ---
 
